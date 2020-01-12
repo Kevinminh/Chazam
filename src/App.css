@@ -1,38 +1,481 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  animation: bgcolor infinite 20s;
+}
+
+@keyframes bgcolor {
+  0% {
+    background: #55efc4;
+  }
+  10% {
+    background: #00b894;
+  }
+  20% {
+    background: #81ecec;
+  }
+  30% {
+    background: #00cec9;
+  }
+  40% {
+    background: #74b9ff;
+  }
+  60% {
+    background: #a29bfe;
+  }
+  70% {
+    background: #6c5ce7;
+  }
+  80% {
+    background: #fab1a0;
+  }
+  90% {
+    background: #e17055;
+  }
+  100% {
+    background: #ff7675;
+  }
+}
+
+/*-------------------Global variables-------------------*/
+.error {
+  color: red;
+  font-weight: 600;
+}
+
+.hide {
+  display: none;
+}
+
+.none {
+  text-decoration: none;
+}
+
+.white {
+  color: #fff;
+}
+
+.grey {
+  color: #383636;
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: none;
+}
+
+.orange {
+  background: #f69e4e;
+}
+
+.green {
+  background: #71c678;
+}
+
+.blue {
+  background: #41c4de;
+}
+
+.darkOrange {
+  background: #f79155;
+}
+
+/*------------------Home page------------------------*/
+
+.homePageBackground {
+  top: 0;
+  bottom: 0;
+  display: flex;
+  height: auto;
+  min-height: 100%;
+  justify-content: center;
+  overflow: auto;
+}
+
+.homePageContainer {
+  width: 100%;
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  top: 27%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.homePageTitle {
+  margin-left: 0%;
+  text-align: center;
+  color: #fff;
+  font-weight: 900;
+  font-size: 80px;
+  -webkit-user-select: none; /* Chrome all / Safari all */
+  -moz-user-select: none; /* Firefox all */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+  margin-bottom: 5%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.homePageInput {
+  position: relative;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.homePageFormContainer {
+  position: relative;
+  display: grid;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.homePageForm {
+  width: 100px;
+  height: 65px;
+  border-radius: 20px;
+  margin-left: -8%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.homePagePin {
+  padding: 12px 20px;
+  border-radius: 5px;
+  outline: none;
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+  color: #a9a9a9;
+  border: 1px solid #a9a9a9;
+  background: #fff;
+}
+
+.homePagePinRED {
+  padding: 12px 20px;
+  border-radius: 5px;
+  outline: none;
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+  color: red;
+  border: 1px solid red;
+  background: #fff;
+}
+
+.homePagePinGreen {
+  padding: 12px 20px;
+  border-radius: 5px;
+  outline: none;
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+  color: green;
+  border: 1px solid green;
+  background: #fff;
+}
+
+.homePagePin placeholder {
+  color: #a9a9a9;
+}
+
+.homePageBtn {
+  margin-top: 12%;
+  width: 250px;
+  height: 45%;
+  right: 50%;
+  background: #383636;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  border: 1px solid #a3a3a3;
+  border-radius: 3px;
+  margin-left: 12.5%;
+  display: block;
+}
+
+.homePageFooter {
+  display: grid;
+  position: absolute;
+  width: 65%;
+  padding: 0px 0;
+  color: #fff;
+  top: 90%;
+  margin: auto;
+  justify-content: center;
+  text-align: center;
+}
+
+.homePageTerms {
+  margin-top: 4%;
+}
+
+.homePageError {
+  margin-top: 5%;
+}
+
+.homePageBtns {
+  display: grid;
+  grid-template-columns: repeat(1fr);
+}
+
+.homePageCreate {
+  background: #9cc93c;
+  width: 250px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  border: 1px solid #9cc93c;
+  border-radius: 3px;
+  display: block;
+  margin-bottom: 5%;
+  height: 50px;
+}
+
+.homePageJoin {
+  background: #383636;
+  width: 250px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  border: 1px solid #383636;
+  border-radius: 3px;
+  display: block;
+  margin-bottom: 5%;
+  height: 50px;
+}
+
+.homePageJoinDisabled {
+  background: #c5c4c4;
+  width: 250px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  border: 1px solid #c5c4c4;
+  border-radius: 3px;
+  display: block;
+  margin-bottom: 5%;
+  height: 50px;
+}
+
+/*-------------------------Create page---------------------*/
+.createBtnPhoto {
+  background: #f69e4e;
+  width: 250px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  border: 1px solid #f69e4e;
+  border-radius: 3px;
+  display: block;
+  margin-bottom: 5%;
+  height: 40px;
+}
+.createBtnFact {
+  background: #71c678;
+  width: 250px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  border: 1px solid #71c678;
+  border-radius: 3px;
+  display: block;
+  margin-bottom: 5%;
+  height: 40px;
+}
+.createBtnDares {
+  background: #41c4de;
+  width: 250px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  border: 1px solid #41c4de;
+  border-radius: 3px;
+  display: block;
+  margin-bottom: 5%;
+  height: 40px;
+}
+.createBtnTruth {
+  background: #f79155;
+  width: 250px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  border: 1px solid #f79155;
+  border-radius: 3px;
+  display: block;
+  margin-bottom: 5%;
+  height: 40px;
+}
+
+/*-------------------------Lobby page---------------------*/
+.lobbyPage {
+  width: 100%;
+  height: 100%;
+}
+
+.lobbyCloseIcon {
+  display: flex;
+  color: #fff;
+  float: right;
+}
+
+.lobbyPin {
+  margin-left: 8%;
+  display: grid;
+  justify-content: center;
+  text-align: center;
+}
+
+.lobbyPinH2 {
+  margin-top: 40%;
+  color: #fff;
+  font-weight: 900;
+  font-size: 35px;
+  text-align: center;
+}
+.lobbyPinH1 {
+  color: #fff;
+  font-weight: 900;
+  font-size: 55px;
+  text-align: center;
+}
+
+.lobbyInvite {
+  display: flex;
+  background: #71c678;
+  border: solid 1px #71c678;
+  border-radius: 5px;
+  font-size: 18px;
+  margin-top: 3%;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px 4px;
+  width: 150px;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  outline: none;
+}
+
+.lobbyPlayers {
+  display: grid;
+  text-align: center;
+  margin-top: 14.5%;
+}
+
+.lobbyPlayer {
+  color: #fff;
+}
+
+.lobbyStart {
+  display: grid;
+  justify-content: center;
+  margin: auto;
+  margin-top: 9%;
+  background: #f53b51;
+  color: #fff;
+  border: 1px solid #f53b51;
+  width: 95%;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 900;
+  outline: none;
+}
+
+.lobbyChat {
+  display: grid;
+  justify-content: center;
+  margin: auto;
+  margin-top: 3%;
+  width: 100%;
+  background: #383636;
+  height: 44px;
+}
+
+.lobbyChatInput {
+  width: 342px;
+  margin-top: 7px;
+  height: 30px;
+  padding: 0 7px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  background: #fff;
+}
+
+.lobbyPhoto {
+  background: #f69e4e;
+  height: auto;
+  overflow: auto;
+}
+
+.lobbyFacts {
+  background: #95e79c;
+  height: auto;
+  overflow: auto;
+}
+
+.lobbyDares {
+  background: #41c4de;
+  height: auto;
+  overflow: auto;
+}
+
+.lobbyTruth {
+  background: #f79155;
+
+  height: auto;
+  overflow: auto;
+}
+
+.mainLobby {
+  height: auto;
+  overflow: auto;
+}
+
+/*---------------iPhone X in Landscape-----------------*/
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) {
+  .homePageFooter {
+    padding: 0px 12%;
+    margin-left: 5%;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+  .homePageBackground {
+    height: 100vh;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .homePageFooter {
+    padding: 0px 12%;
+    margin-left: 5%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .homePageFooter {
+    padding: 0px 12%;
+    margin-left: 5%;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .homePageFooter {
+    padding: 0px 12%;
+    margin-left: 5%;
   }
 }
