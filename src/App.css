@@ -131,9 +131,10 @@ body {
 
 .homePageForm {
   width: 100px;
-  height: 65px;
+  height: 45px;
   border-radius: 20px;
-  margin-left: -8%;
+  display: grid;
+  margin-bottom: 5px;
 }
 
 .homePagePin {
