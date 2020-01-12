@@ -1,61 +1,81 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-class landing extends Component {
-  constructor(props) {
-    super(props);
-    this.getUserName = this.getUserName.bind(this);
+const App = () => {
+  const [value, setValue] = React.useState(
+    localStorage.getItem("playerName") || ""
+  );
+
+  React.useEffect(() => {
+    localStorage.setItem("playerName", value);
+  }, [value]);
+
+  const onChange = event => {
+    setValue(event.target.value);
+  };
+
+  function getName(e) {
+    var playerName = document.querySelector("#playerName").value;
+    var joinBtn = document.querySelector(".homePageJoin");
+    var createBtn = document.querySelector(".homePageCreate");
+    var inputField = document.querySelector("#playerName");
+    var error = document.querySelector("#error");
+
+    if (playerName === "") {
+      joinBtn.setAttribute("class", "homePageJoinDisabled disabled none white");
+      createBtn.setAttribute(
+        "class",
+        "homePageCreateDisabled disabled none white"
+      );
+      inputField.setAttribute("class", "homePagePinRED");
+      error.setAttribute("class", "error");
+      e.preventDefault();
+    } else if (playerName !== "" || e.key === "ENTER") {
+      joinBtn.setAttribute("class", "homePageJoin");
+      createBtn.setAttribute("class", "homePageCreate");
+    }
   }
+  return (
+    <div className="homePageBackground">
+      <div className="homePageContainer">
+        <div className="homePageInput">
+          <h2 className="homePageTitle">Chazam!</h2>
+          <div className="homePageFormContainer">
+            <form className="homePageForm">
+              <input
+                className="homePagePin"
+                id="playerName"
+                placeholder="Your name..."
+                onChange={onChange}
+                value={value}
+                type="text"
+              ></input>
+            </form>
 
-  getUserName() {
-    // gets input value
-    var name = document.querySelector("#homePagePin").value;
+            <div className="homePageBtns">
+              <Link className="none white homePageJoin" id="joinBtn" to="/join">
+                <button className="homePageJoin" onClick={getName}>
+                  Join
+                </button>
+              </Link>
 
-    // Saves data to retrieve later
-    localStorage.setItem("userName", name);
-
-    // Updates HTML
-    this.updateHTML();
-  }
-
-  returnName() {
-    return localStorage.getItem("userName");
-  }
-
-  updateHTML() {
-    var name = this.returnName;
-    document.querySelector("#homePagePin").innerHTML = name;
-  }
-
-  render() {
-    return (
-      <div className="homePageBackground">
-        <div className="homePageContainer">
-          <div className="homePageInput">
-            <h2 className="homePageTitle">Chazam!</h2>
-            <div className="homePageFormContainer">
-              <form className="homePageForm">
-                <input
-                  className="homePagePin"
-                  id="gamePIN"
-                  placeholder="Your name..."
-                ></input>
-              </form>
-              <div className="homePageBtns">
-                <Link className="none white" to="/join">
-                  <button className="homePageJoin">Join</button>
-                </Link>
-
-                <Link className="none white" to="/create">
-                  <button className="homePageCreate">Create</button>
-                </Link>
-              </div>
+              <Link
+                className="none white homePageCreate"
+                id="createBtn"
+                to="/create"
+              >
+                <button className="homePageCreate" onClick={getName}>
+                  Create
+                </button>
+              </Link>
             </div>
           </div>
+          <span className="hide" id="error">
+            <p>Error! Please enter your name to continue.</p>
+          </span>
         </div>
       </div>
-    );
-  }
-}
-
-export default landing;
+    </div>
+  );
+};
+export default App;
