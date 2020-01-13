@@ -380,11 +380,10 @@ body {
 
 .lobbyPlayers {
   display: grid;
-  text-align: center;
-  position: absolute;
-  justify-content: center;
-  margin: auto;
   margin-top: 14.5%;
+  margin-left: 45%;
+  position: absolute;
+  text-align: center;
 }
 
 .lobbyPlayer {
@@ -457,6 +456,10 @@ body {
 .mainLobby {
   height: 100%;
   overflow: auto;
+}
+.lobbyBtns {
+  margin-top: 120%;
+  bottom: 0;
 }
 
 /*---------------iPhone X in Landscape-----------------*/
