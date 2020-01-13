@@ -27,7 +27,7 @@ const App = () => {
         "class",
         "homePageCreateDisabled disabled none white"
       );
-      inputField.setAttribute("class", "homePagePinRED");
+      inputField.setAttribute("class", "inputPinRED");
       error.setAttribute("class", "error");
       e.preventDefault();
     } else if (playerName !== "" || e.key === "ENTER") {
